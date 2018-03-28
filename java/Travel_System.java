@@ -77,11 +77,37 @@ public class Travel_System {
                 + "FOREIGN KEY (TransID) REFERENCES Transportation(TransID),FOREIGN KEY (HotelID) REFERENCES Hotels(HotelID))");
         query("COMMIT");
     }
+	
+	/**
+     * Initialize a database from a SQL script file.
+     */
+    void initDb() throws Exception {
+        Class.forName("org.h2.Driver");
+        InputStream in = getClass().getResourceAsStream("../sql/Setup.sql");
+        if (in == null) {
+            System.out.println("Please add the file script.sql to the classpath, package "
+                    + getClass().getPackage().getName());
+        } else {
+            Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
+            RunScript.execute(conn, new InputStreamReader(in));
+			/*
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("SELECT * FROM TEST");
+            while (rs.next()) {
+                System.out.println(rs.getString(1));
+            }
+            rs.close();
+            stat.close();
+			*/
+            conn.close();
+        }
+    }
 
     public static void main( String [] args ) throws Exception {
         System.out.println("HELLO");
         connect();
-        setupDB();
+        //setupDB();
+		initDb();
         d_connect();
 
 
