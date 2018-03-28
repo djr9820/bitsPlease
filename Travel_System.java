@@ -74,5 +74,7 @@ public class Travel_System {
 	connect();
 	setupDB();
 	d_connect();
+
+	System.out.println(conn.toString());
     }
 }
