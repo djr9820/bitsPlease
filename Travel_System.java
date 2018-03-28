@@ -1,6 +1,5 @@
 // shell for Travel_System
 
-
 import java.sql.*;
 
 
@@ -16,7 +15,7 @@ public class Travel_System {
             Class.forName("org.h2.Driver");
 //            Server embeddedServer = new Server();
 //            embeddedServer.run(new String[]{ "-tcp", "-web" }, System.out);
-            conn = DriverManager.getConnection( "jdbc:h2:~/test1","sa","" );
+            conn = DriverManager.getConnection( "jdbc:h2:~/test2","sa","" );
 //            System.out.println(conn);
             stmt = conn.createStatement();
         }
