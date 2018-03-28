@@ -81,7 +81,7 @@ public class Travel_System {
 	/**
      * Initialize a database from a SQL script file.
      */
-    void initDb() throws Exception {
+    public static void initDb() throws Exception {
         Class.forName("org.h2.Driver");
         InputStream in = getClass().getResourceAsStream("../sql/Setup.sql");
         if (in == null) {
