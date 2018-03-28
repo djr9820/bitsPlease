@@ -36,7 +36,6 @@ public class Interface {
     }
 
     public void change_view(int num){
-
-	return true; //TODO
+         //TODO
     }
 }
